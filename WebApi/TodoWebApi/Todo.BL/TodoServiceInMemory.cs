@@ -12,6 +12,53 @@ namespace Todo.BL
         private static readonly List<TodoItem> _data = new List<TodoItem>();
         private static int _lastId = 0;
 
+        static TodoServiceInMemory()
+        {
+            //seeding
+            Seed();
+        }
+
+        private static void Seed()
+        {
+            var names = new []
+            {
+                "Cleaning",
+                "Cooking",
+                "Dog walking",
+                "Cat walking",
+                "Lorem Ipsum",
+            };
+
+            var descs = new []
+            {
+                "Clean the hous",
+                "Cook the dinned",
+                "Walk the dog",
+                "Walk the cat",
+                "Lorem Ipsum dolor sit amet, nihil novus sub sole.",
+            };
+
+            var times = new[]
+            {
+                DateTime.Now,
+                new DateTime(2018,7,8), 
+                new DateTime(2018,5,5), 
+                new DateTime(2018,10,10), 
+                new DateTime(2018,11,11), 
+            };
+
+            for (int i = 0; i < 5; i++)
+            {
+                _data.Add(new TodoItem
+                {
+                    Id = GetUniqueId(),
+                    Description = descs[i],
+                    DueDate = times[i],
+                    Name = names[i]
+                });
+            }
+        }
+
         private static int GetUniqueId()
         {
             return _lastId++;
@@ -46,8 +93,13 @@ namespace Todo.BL
             if (entity.Id == 0)
             {
                 entity.Id = GetUniqueId();
+                _data.Add(entity);
             }
-            _data.Add(entity);
+            else
+            {
+                _data.Remove(_data.First(x => x.Id == dto.Id));
+                _data.Add(entity);
+            }            
         }
 
         /// <inheritdoc />

@@ -11,7 +11,7 @@ namespace Todo.BL.Extensions
             {
                 Description = item.Description,
                 DueDate = item.DueDate,
-                Name = item.Description,
+                Name = item.Name,
                 Id = item.Id
             };
         }
@@ -22,7 +22,7 @@ namespace Todo.BL.Extensions
             {
                 Description = item.Description,
                 DueDate = item.DueDate,
-                Name = item.Description,
+                Name = item.Name,
                 Id = item.Id
             };
         }
