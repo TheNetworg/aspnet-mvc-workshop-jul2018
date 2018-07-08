@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TodoWebApi.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class TodoController : ApiController
     {
         // GET api/values
         [HttpGet]
