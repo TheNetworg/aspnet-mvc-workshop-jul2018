@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 using Todo.BL;
 
 namespace TodoWebApi
@@ -25,6 +26,17 @@ namespace TodoWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Todo API",
+                    Version = "v1",
+                    Description = "Huge API for all todo services you can imagine.",
+                });
+            });
+
             services.AddScoped<ITodoService, TodoServiceInMemory>();            
         }
 
@@ -37,6 +49,21 @@ namespace TodoWebApi
             }
 
             app.UseMvc();
+            ConfigureSwagger(app);
+        }
+
+        private void ConfigureSwagger(IApplicationBuilder app)
+        {
+            //Swager
+            app.UseSwagger(c =>
+            {
+                c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TOOO API v1");                
+            });
         }
     }
 }

@@ -11,6 +11,10 @@
 4. [You're done](https://d1u5p3l4wpay3k.cloudfront.net/battlerite_gamepedia_en/c/cf/VO_Vanguard_Ultimate_8.mp3)
 
 ## Hints
+```
+Install-Package Swashbuckle.AspNetCore -Version 3.0.0
+```
+
 ```cs
 services.AddScoped<IInterface, Implmentation>();     
 
