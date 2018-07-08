@@ -146,3 +146,8 @@ public class GreetingController:ApiController
         }
     }
 ```
+
+* Now every request on http://localhost:9090/greeting will be processed by API controller.
+* Routing is achieved with our config.Routes.
+* You can also try querry parametr name
+* http://localhost:9090/greeting?name=john
