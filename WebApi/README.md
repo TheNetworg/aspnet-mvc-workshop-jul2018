@@ -9,3 +9,15 @@
 2. Create simple API definition that only calls the service and passes the dtos
 3. (Optional) Create rest api definition using swashbuckle
 4. [You're done](https://d1u5p3l4wpay3k.cloudfront.net/battlerite_gamepedia_en/c/cf/VO_Vanguard_Ultimate_8.mp3)
+
+## Hints
+```cs
+services.AddScoped<IInterface, Implmentation>();     
+
+[HttpGet]
+[ProducesResponseType(typeof(IEnumerable<TodoItemDTO>), 200)]
+public IActionResult  Get()
+{
+    return Ok(_service.GetAll());
+}
+```
