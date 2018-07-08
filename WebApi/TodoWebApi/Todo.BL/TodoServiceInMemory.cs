@@ -7,7 +7,7 @@ using Todo.DAL.Entities;
 
 namespace Todo.BL
 {    
-    public class TodoService : ITodoService
+    public class TodoServiceInMemory : ITodoService
     {
         private static readonly List<TodoItem> _data = new List<TodoItem>();
         private static int _lastId = 0;
