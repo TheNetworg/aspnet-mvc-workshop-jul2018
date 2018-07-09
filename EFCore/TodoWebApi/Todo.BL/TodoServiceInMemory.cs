@@ -6,7 +6,7 @@ using Todo.BL.Extensions;
 using Todo.DAL.Entities;
 
 namespace Todo.BL
-{    
+{
     public class TodoServiceInMemory : ITodoService
     {
         private static readonly List<TodoItem> _data = new List<TodoItem>();

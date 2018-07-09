@@ -39,7 +39,8 @@ namespace TodoWebApi
                 });
             });
 
-            services.AddScoped<ITodoService, TodoServiceInMemory>();            
+            services.AddDbContext<AppDbContext>();
+            services.AddScoped<ITodoService, TodoServiceEF>();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
