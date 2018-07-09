@@ -13,6 +13,7 @@
 ## Hints
 
 ### Nuggets
+Select DAL as default project in the package manager console
 ```
 Install-Package Microsoft.EntityFrameworkCore -Version 2.1.1
 Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.1
@@ -30,6 +31,7 @@ public class AppDbContext : DbContext
         base.OnConfiguring(optionsBuilder);
         optionsBuilder.UseSqlServer(
             "Server=(localdb)\\mssqllocaldb;Database=TodoDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+            // In production, never use connection string inside code, use some appsettings - this is only for the sake of the demo
     }
 }
 ```
@@ -37,6 +39,7 @@ public class AppDbContext : DbContext
 Create code first database
 
 ### Package manager console commands
+Select DAL as default project in the package manager console
 ```
 Add-Migration -Name "Initial schema"
 Update-Database
