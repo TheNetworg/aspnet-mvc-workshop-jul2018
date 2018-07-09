@@ -19,8 +19,19 @@ Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.1
 Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.1.1
 ```
 
+### Code hints
 ```cs
-//
+public class AppDbContext : DbContext
+{
+    public DbSet<TodoItem> Items { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.UseSqlServer(
+            "Server=(localdb)\\mssqllocaldb;Database=TodoDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+    }
+}
 ```
 
 Create code first database
