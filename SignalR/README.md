@@ -1,0 +1,1 @@
+Install-Package Microsoft.AspNet.SignalR -Version 2.3.0
