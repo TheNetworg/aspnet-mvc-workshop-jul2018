@@ -3,7 +3,8 @@ This repo contains demos and solutions for workshop.
 
 ## Demos:
 * Owin and Katana
-* WebApi
-* DotVVM
-* Entity Framework
+* WebApi (core)
 * Entity Framework Core
+* Authentication
+* MVC
+* DotVVM
