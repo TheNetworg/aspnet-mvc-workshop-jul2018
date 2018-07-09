@@ -35,7 +35,7 @@ namespace TodoWebApi
         {
             services.AddDbContext<AppDbContext>();
             services.AddScoped<ITodoService, TodoServiceEF>();
-            
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -47,7 +47,7 @@ namespace TodoWebApi
                     options.TokenValidationParameters.ValidateIssuer = true;
                     options.TokenValidationParameters.IssuerValidator = ValidateIssuer;
                 });
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info
