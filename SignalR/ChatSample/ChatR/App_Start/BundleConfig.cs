@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace DemoR
+namespace ChatR
 {
     public class BundleConfig
     {

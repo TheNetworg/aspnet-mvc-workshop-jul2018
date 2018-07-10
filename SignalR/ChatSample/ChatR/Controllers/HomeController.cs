@@ -4,11 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DemoR.Controllers
+namespace ChatR.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Chat()
         {
             return View();
         }
